@@ -6,3 +6,4 @@ Logs/
 obj/
 .idea/
 .vscode/
+.gitignore
