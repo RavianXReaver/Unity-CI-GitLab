@@ -1,13 +1,25 @@
-stages: 
+
+stages:
   - test
   - build
   - deploy
 unit-test:
+  script: "unityhub \
+    -batchmode \
+    -projectPath . \
+    -runTests -testPlatform editmode \
+    -logFile \
+    -testResults ./unit-tests.xml"
   stage: test
-  script: echo 'Testing...'
+  tags:
+    - unity
 unity-build:
+  script: "echo 'Building...'"
   stage: build
-  script: echo 'Building...'
+  tags:
+    - unity
 playstore:
+  script: "echo 'Deploying...'"
   stage: deploy
-  script: echo 'Deploying...'
+  tags:
+    - unity
